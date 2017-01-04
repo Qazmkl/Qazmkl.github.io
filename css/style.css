@@ -36,6 +36,11 @@
     justify-content: center;
 }
 
+.button-row > .btn.btn-default {
+    width: 120px;
+    margin: 2px;
+}
+
 .contentBordered {
     border: 1px solid #00ADEE;
     margin: 20px;
@@ -109,10 +114,6 @@
 @media only screen and (max-width: 507px) {
     .button-row {
         display: flex;
-    }
-    .button-row > .btn.btn-default {
-        width: 120px;
-        margin: 2px;
     }
     .carousel-control {
         width: 10%;
