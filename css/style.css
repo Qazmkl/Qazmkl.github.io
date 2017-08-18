@@ -51,8 +51,9 @@ h3 {
 
 .contentBordered {
     border: 1px solid #00ADEE;
-    margin: 20px;
+    margin: 0px 20px 20px 20px;
     border-radius: 5px;
+	padding-bottom: 10px;
 }
 
 .intro-picture {
@@ -68,7 +69,7 @@ h3 {
 }
 
 .btn-marginBottom {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .noMargin-top {
@@ -82,11 +83,36 @@ h3 {
 
 .modal-header {
 	font-weight: 600;
+	margin-top: 0px;
 }
 
-.carousel-control.left,
-.carousel-control.right {
-    background-image: none
+.modal-footer {
+	padding: 30px;
+}
+
+/* From https://stackoverflow.com/questions/18422223/bootstrap-3-modal-vertical-position-center */
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+/**/
+
+.carousel-control {
+    background-image: none;
+	top: auto;
+	bottom: auto;
 }
 
 .carousel-indicators li {
@@ -101,6 +127,12 @@ h3 {
 
 .carousel-indicators .active {
     background-color: #292C37;
+}
+
+@media screen and (min-width: 768px) {
+	.carousel-indicators {
+		bottom: 10px;
+	}
 }
 
 @media only screen and (min-width: 507px) {
@@ -132,10 +164,16 @@ h3 {
     .workTermLogo {
         margin-left: 0px;
     }
-    #term1Goals {
-        margin-bottom: 5px;
+    .goals,
+	.desc,
+	.conc	{
+        margin-bottom: 10px;
     }
-    #term1Desc {
+}
+
+@media only screen and (max-width: 436px) {
+    .goals,
+	.desc	{
         margin-bottom: 5px;
     }
 }

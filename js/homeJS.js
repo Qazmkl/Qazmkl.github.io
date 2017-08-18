@@ -1,20 +1,34 @@
 $(document).ready(function () {
-    /*var showTerm1 = function () {
-        $("#term1Content").show();
-        $("#introContent").hide();
-    }
+	// From https://codepen.io/dimbslmh/full/mKfCc
+	function setModalMaxHeight(element) {
+		this.$element     = $(element);  
+		this.$content     = this.$element.find('.modal-content');
+		var borderWidth   = this.$content.outerHeight() - this.$content.innerHeight();
+		var dialogMargin  = $(window).width() < 768 ? 20 : 60;
+		var contentHeight = $(window).height() - (dialogMargin + borderWidth);
+		var headerHeight  = this.$element.find('.modal-header').outerHeight() || 0;
+		var footerHeight  = this.$element.find('.modal-footer').outerHeight() || 0;
+		var maxHeight     = contentHeight - (headerHeight + footerHeight);
 
-    var showIntro = function () {
-        $("#introContent").show();
-        $("#term1Content").hide();
+		this.$content.css({
+		  'overflow': 'hidden'
+		});
 
-    }
+		this.$element
+		.find('.modal-body').css({
+		  'max-height': maxHeight,
+		  'overflow-y': 'auto'
+		});
+	}
 
-    $("#term1Button").click(function () {
-        showTerm1();
-    })
+	$('.modal').on('show.bs.modal', function() {
+		$(this).show();
+		setModalMaxHeight(this);
+	});
 
-    $("#introButton").click(function () {
-        showIntro();
-    })*/
+	$(window).resize(function() {
+		if ($('.modal.in').length != 0) {
+			setModalMaxHeight($('.modal.in'));
+		}
+	});
 })
